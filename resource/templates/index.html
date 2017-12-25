@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to Rango!{% endblock %}
+
+{% block body_block %}
+    <div class="container">
+    <h2>Dynamic Tabs</h2>
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#menu1">Token Used</a></li>
+        <li><a data-toggle="tab" href="#menu2">Token Free</a></li>
+    </ul>
+
+    <br/>
+    <div class="tab-content">
+
+        <div id="menu1" class="tab-pane fade in active">
+            {% if token_key_used_list %}
+            <ul>
+            {% for token in token_key_used_list %}
+
+                <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>
+                        <a href="/token_server/token_detail/{{ token.id }}">{{ token.token_hash }}</a>
+                    </h3>
+                </div>
+
+                <div class="panel-body">
+                    <h4>
+                        {{ token.customer_email }}
+                    </h4>
+                    {% for token_child in token.customertokenbinding_set.all  %}
+                        <p>{{ token_child.api_key }}</p>
+                    {% endfor %}
+                </div>
+                </div>
+
+            {% endfor %}
+            </ul>
+            {% else %}
+                <div class="container">
+                    <strong>No tokens at present.</strong>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <div id="menu2" class="tab-pane fade">
+            {% if token_key_free_list %}
+            <ul>
+            {% for token in token_key_free_list %}
+
+                <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>
+                        <a href="/token_server/token_detail/{{ token.id }}">{{ token.token_hash }}</a>
+                    </h3>
+                </div>
+
+                <div class="panel-body">
+                    <div class="container">
+                        <strong>No tokens at present.</strong>
+                    </div>
+
+                </div>
+                </div>
+
+            {% endfor %}
+            </ul>
+            {% else %}
+                <div class="container">
+                    <strong>No tokens at present.</strong>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+    </div>
+
+    <!--/row-->
+
+
+{% endblock %}
+

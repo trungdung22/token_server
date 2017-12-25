@@ -1,0 +1,279 @@
+/*-	JTV Revolution Slider -*/
+
+.main-slider-area{margin-top: 24px;}
+.jtv-slideshow {
+	overflow: hidden;
+	
+}
+.rev_slider_wrapper {
+	position: relative;
+}
+.rev_slider {
+	position: relative;
+	overflow: visible;
+}
+.rev_slider ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none !important;
+	list-style-type: none;
+	background-position: 0px 0px;
+}
+.jtv-caption {
+	z-index: 1;
+}
+.tp-simpleresponsive .jtv-caption {
+	position: absolute;
+}
+.jtv-caption-inner.jtv-right {
+	text-align: right;
+}
+.jtv-caption-inner.jtv-left {
+	text-align: left;
+}
+.jtv-caption.jtv-small-title {
+	font-weight: 400;
+	text-transform: uppercase;
+	font-family: "Roboto Condensed", sans-serif;
+	color: #000;
+	text-decoration: none;
+	background-color: transparent;
+	padding: 0px 20px 0px 20px;
+	font-size: 13px;
+	letter-spacing: 6px;
+}
+.jtv-caption.jtv-large-title {
+	display: block;
+	border: 3px double #333;
+	font-size: 46px;
+	line-height: 60px;
+	padding: 0 15px;
+	margin-bottom: 8px;
+	font-weight: 900;
+	font-family: "Roboto Condensed", sans-serif;
+	background-color: #fff;
+	text-transform: uppercase;
+}
+a.jtv-shop-btn {
+	line-height: 25px;
+	padding: 5px 25px;
+	font-size: 15px;
+	display: inline-block;
+	font-weight: 500;
+	color: #333;
+	font-family: "Roboto Condensed", sans-serif;
+	text-transform: uppercase;
+	background-color: #ffd200;
+}
+.jtv-right a:hover.jtv-shop-btn {
+	background-color: #000;
+	color: #fff;
+}
+.bnt-bg a.jtv-shop-btn {
+	background-color: #2174a9;
+	color: #fff;
+}
+a.jtv-shop-btn:hover, .bnt-bg a.jtv-shop-btn:hover {
+	background-color: #ffd200;
+	color: #000;
+	text-decoration: none;
+}
+.jtv-caption-inner.jtv-left .jtv-caption.jtv-small-title {
+	font-size: 42px;
+	display: block;
+	margin-bottom: 0;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: normal;
+}
+.jtv-caption-inner.jtv-left .jtv-caption.jtv-large-title {
+	display: block;
+	border: 0px solid #333;
+	font-size: 18px;
+	line-height: 22px;
+	padding: 0px;
+	margin-bottom: 6px;
+	font-weight: 400;
+	font-family: "Roboto Condensed", sans-serif;
+	text-transform: none;
+	background-color: inherit;
+}
+.jtv-caption.decs {
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-family: "Roboto Condensed", sans-serif;
+	color: #333;
+	text-decoration: none;
+	background-color: transparent;
+	padding: 0px 0px 0px 0px;
+}
+.jtv-caption-inner.jtv-left .jtv-caption.decs {
+	color: #fff;
+}
+.tp-bullets {
+	z-index: 1000;
+	position: absolute;
+	opacity: 1;
+}
+.tp-bullets.hidebullets {
+	opacity: 0;
+}
+.tparrows {
+	opacity: 1;
+}
+.tp-leftarrow {
+	z-index: 100;
+	cursor: pointer;
+	position: relative;
+	width: 40px;
+	height: 40px;
+}
+.tp-leftarrow:before {
+	content: "\f104";
+	font-family: 'FontAwesome';
+	font-size: 20px;
+	color: #fff;
+}
+.tp-rightarrow:before {
+	content: "\f105";
+	font-family: 'FontAwesome';
+	font-size: 20px;
+	color: #fff;
+}
+.tp-rightarrow {
+	z-index: 100;
+	cursor: pointer;
+	position: relative;
+	width: 40px;
+	height: 40px;
+}
+.rev_slider_wrapper .tp-leftarrow.default {
+	z-index: 100;
+	cursor: pointer;
+	left: -45px !important;
+	opacity: 0px;
+	visibility: hidden;
+	transition: all 0.3s ease-in-out;
+}
+.rev_slider_wrapper:hover .tp-leftarrow.default {
+	z-index: 100;
+	cursor: pointer;
+	left: 15px !important;
+	opacity: 1px;
+	visibility: visible;
+	transition: all 0.3s ease-in-out;
+}
+.rev_slider_wrapper .tp-rightarrow.default {
+	z-index: 100;
+	cursor: pointer;
+	right: -45px !important;
+	opacity: 0px;
+	visibility: hidden;
+	transition: all 0.3s ease-in-out;
+}
+.rev_slider_wrapper:hover .tp-rightarrow.default {
+	z-index: 100;
+	cursor: pointer;
+	right: 15px !important;
+	opacity: 1px;
+	visibility: visible;
+	transition: all 0.3s ease-in-out;
+}
+.tp-bullets.tp-thumbs {
+	/*z-index: 1000; */
+    
+	position: absolute;
+	padding: 3px;
+	background-color: #fff;
+	width: 500px;
+	height: 50px;
+	/* THE DIMENSIONS OF THE THUMB CONTAINER */
+    
+	margin-top: -50px;
+	vertical-align: top;
+	display: none;
+}
+.fullwidthbanner-container .tp-thumbs {
+	padding: 3px;
+	margin: auto -160px !important;
+}
+.tp-bullets.tp-thumbs .tp-mask {
+	width: 500px;
+	height: 50px;
+	/* THE DIMENSIONS OF THE THUMB CONTAINER */
+    
+	overflow: hidden;
+	position: relative;
+}
+.tp-bullets.tp-thumbs .tp-mask .tp-thumbcontainer {
+	width: 500px;
+	position: absolute;
+}
+.tp-bullets.tp-thumbs .bullet {
+	width: 100px;
+	height: 50px;
+	/* THE DIMENSION OF A SINGLE THUMB */
+    
+	cursor: pointer;
+	overflow: hidden;
+	background: none;
+	margin: 0;
+	float: left;
+}
+.tp-bullets.tp-thumbs .bullet:hover, .tp-bullets.tp-thumbs .bullet.selected {
+	opacity: 1;
+}
+.tp-simpleresponsive ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.tp-simpleresponsive >ul li {
+	list-style: none;
+	position: absolute;
+	visibility: hidden;
+}
+/*  CAPTION SLIDELINK   **/
+
+.tp-leftarrow.default, .tp-rightarrow.default {
+	font-family: FontAwesome;
+	font-size: 11px;
+	font-weight: normal;
+	height: 45px;
+	width: 40px;
+	text-align: center;
+	line-height: 44px;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+.tp-leftarrow.default:hover, .tp-rightarrow.default:hover {
+	background-color: #2174a9;
+}
+.forcefullwidth_wrapper_tp_banner, .fullwidthbanner-container {
+	max-width: 100%;
+	left: 0 !important;
+	margin: auto !important;
+	overflow: hidden;
+}
+ @media only screen and (min-width: 320px) and (max-width: 479px) {
+.tp-button {
+	padding: 2px 5px 2px;
+	line-height: 20px !important;
+	font-size: 10px !important;
+}
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.tp-button {
+	padding: 4px 8px 3px;
+	line-height: 25px !important;
+	font-size: 11px !important;
+	font-weight: normal;
+}
+}
+.grey-box {
+	background-color: #e5e5e5;
+	border: 1px #ddd solid;
+	width: 100%;
+	height: 380px;
+}
