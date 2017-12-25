@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESOURCE_PATH = os.path.join(BASE_DIR,'resource')
-TEMPLATE_DIR = os.path.join(RESOURCE_PATH,'templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 STATIC_DIR = os.path.join(RESOURCE_PATH)
 MEDIA_DIR = os.path.join(RESOURCE_PATH, 'media')
 
@@ -35,7 +35,7 @@ SECRET_KEY = '0hj00+)mv(k+x(8*7!)%0@@%fsvnkdtuzusx#^marm@!o3=7rx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'token_server.apps.TokenServerConfig',
+    'token_server',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -81,20 +82,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
+try:
+    import MySQLdb  # noqa: F401
+except ImportError:
+    import pymysql
+    pymysql.install_as_MySQLdb()
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-
-
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '35.200.216.185',
+            'HOST': '/cloudsql/<token-server-190108:asia-south1:deephive>',
             'NAME': 'token_server',
             'USER': 'dungdo',
-            'PASSWORD': '16041992trung',
-            'PORT': '3306'
+            'PASSWORD': '16041992trung'
         }
 }
 

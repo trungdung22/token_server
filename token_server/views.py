@@ -19,7 +19,7 @@ secret_key = "dc2bd2a004f7ea14c05ba8aa07345"
 
 def loginview(request):
     c = {}
-    return render_to_response('login.html', c)
+    return render_to_response('../templates/login.html', c)
 
 def decrypt(payload):
     payload = jwt.decode(payload, secret_key, algorithms=['HS256'])
@@ -48,16 +48,16 @@ def auth_and_login(request, onsuccess='/', onfail='/login/'):
             # The account is inactive; tell by adding variable to the template context.
             else:
                 context_dict['disabled_account'] = True
-                return render(request, 'login.html', context_dict)
+                return render(request, '../templates/login.html', context_dict)
         # Invalid login details supplied!
         else:
             print "Invalid login details: {0}, {1}".format(username, password)
             context_dict['bad_details'] = True
-            return render(request,'login.html', context_dict)
+            return render(request, '../templates/login.html', context_dict)
 
     # Not a HTTP POST - most likely a HTTP GET. In this case, we render the login form for the user.
     else:
-        return render(request, 'login.html', context_dict)
+        return render(request, '../templates/login.html', context_dict)
 
 @login_required
 def user_logout(request):
@@ -95,7 +95,7 @@ def login_view(request):
                 return HttpResponseRedirect('/token_server/index/')
         else:
             context_dict['bad_details'] = True
-            return render_to_response('login.html', context_dict, context)
+            return render_to_response('../templates/login.html', context_dict, context)
 
 @login_required(login_url='/token_server/login/')
 def index_view(request):
@@ -106,7 +106,7 @@ def index_view(request):
     context_dict['token_key_used_list'] = token_key_used_list
     context_dict['token_key_free_list'] = token_key_free_list
 
-    return render(request, 'index.html', context_dict)
+    return render(request, '../templates/index.html', context_dict)
 
 
 @csrf_exempt
